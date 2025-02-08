@@ -15,74 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
-=======
-    
-    <style>
-        * {
-            font-family: "Cairo";
-        }
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 50;
-        }
-        .products-container {
-            overflow: hidden;
-            position: relative;
-        }
-        .products-wrapper {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .product {
-            flex: 0 0 calc(100% / 6 - 16px);
-            box-sizing: border-box;
-            text-align: center;
-            background: #f8f8f8;
-            padding: 16px;
-            border-radius: 8px;
-        }
-        .add-to-cart {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #f7ce46;
-            color: white;
-            /* padding: 10px; */
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.5s
-        }
-        .add-to-cart:hover {
-            background-color:rgba(247, 206, 70, 0.63);
-        }
-        .home-slider {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 20px;
-            border-radius: 5px
-        }
-        .slider-wrapper {
-            display: flex;
-            width: 100%;
-            transition: transform 1s ease-in-out;
-        }
-        .slide {
-            flex: 0 0 100%;
-            position: relative;
-        }
-    </style>
->>>>>>> b75af6eb0312224c5cc9617b356e5c46f7f716d1
 </head>
 <body class="bg-white text-gray-900">
     <div id="overlay"></div>
