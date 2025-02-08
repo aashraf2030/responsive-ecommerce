@@ -66,7 +66,7 @@
                 
                 <?php
                 
-                    $q = "SELECT pname, price, image FROM product ORDER BY creation_date Limit 10 ";
+                    $q = "SELECT pname, price, image, idproduct FROM product ORDER BY creation_date Limit 10 ";
                     $stmt = $conn->query($q);
 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -76,7 +76,7 @@
                                 <p class='mt-2'>".$row["pname"]."</p>
                                 <p class='font-bold'>".$row["price"]." رس</p>
                                 <div class='product-actions'>
-                                    <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
+                                    <button class='add-to-cart' value=".$row["idproduct"]."><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
                                     <i class='fas fa-heart wishlist'></i>
                                 </div>
                             </div>";
