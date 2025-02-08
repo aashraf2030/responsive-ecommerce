@@ -1,6 +1,26 @@
 <?php
     include "API/conn.php";
 
+    if (isset($_COOKIE["session"]) && isset($_COOKIE["id"]))
+    {
+        include "API/util.php";
+        if (validateUserSession($_COOKIE["id"], $_COOKIE["session"], $conn))
+        {
+            header("Location:".$server_name); //."profile.php"
+        }
+        else
+        {
+            destroySession($_COOKIE["session"], $conn);
+        }
+    }
+    else
+    {
+        include "API/util.php";
+        if (isset($_COOKIE["session"]))
+        {
+            destroySession($_COOKIE["session"], $conn);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +71,9 @@
         </div>
         
         <div id="login-form">
+
+            <?php if (isset($_GET["error"])) echo "Error....";?>
+
             <h2 class="text-2xl font-bold text-center mb-6">تسجيل الدخول</h2>
             <form action=<?php echo "'".$api_base."login.php'"?> method="POST">
                 <div class="mb-4">

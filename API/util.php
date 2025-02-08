@@ -4,7 +4,7 @@
     {
         $q = "INSERT INTO session VALUES (?, ?)";
 
-        $sessionID = bin2hex(random_bytes(50));
+        $sessionID = bin2hex(random_bytes(25));
 
         while (true)
         {
