@@ -15,7 +15,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
+=======
+    
+    <style>
+        * {
+            font-family: "Cairo";
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 50;
+        }
+        .products-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .products-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .product {
+            flex: 0 0 calc(100% / 6 - 16px);
+            box-sizing: border-box;
+            text-align: center;
+            background: #f8f8f8;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .add-to-cart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #f7ce46;
+            color: white;
+            /* padding: 10px; */
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.5s
+        }
+        .add-to-cart:hover {
+            background-color:rgba(247, 206, 70, 0.63);
+        }
+        .home-slider {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 20px;
+            border-radius: 5px
+        }
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .slide {
+            flex: 0 0 100%;
+            position: relative;
+        }
+    </style>
+>>>>>>> b75af6eb0312224c5cc9617b356e5c46f7f716d1
 </head>
 <body class="bg-white text-gray-900">
     <div id="overlay"></div>
@@ -156,7 +223,54 @@
                 }
             ?>
     </section>
-    
+    <footer class="bg-gray-100 text-gray-800 py-8 mt-10">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- القسم الأول -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">روابط تهمك</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-yellow-500">المدونة</a></li>
+        <li><a href="#" class="hover:text-yellow-500">سياسة الاستبدال والإرجاع</a></li>
+        <li><a href="#" class="hover:text-yellow-500">سياسة الخصوصية</a></li>
+        <li><a href="#" class="hover:text-yellow-500">مبيعات الجملة</a></li>
+      </ul>
+    </div>
+
+    <!-- القسم الثاني -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">خدمة العملاء</h3>
+      <div class="flex flex-col space-y-2">
+        <button class="bg-gray-200 py-2 px-4 rounded-lg">📧 إيميل</button>
+        <button class="bg-gray-200 py-2 px-4 rounded-lg">📞 جوال</button>
+        <button class="bg-gray-200 py-2 px-4 rounded-lg"><i class="fab fa-whatsapp"> واتساب</button>
+      </div>
+    </div>
+
+    <!-- القسم الثالث -->
+    <div class="text-center md:text-right">
+      <h3 class="text-lg font-bold mb-4">أفكار مودرن</h3>
+      <p class="text-sm leading-relaxed">
+        براند سعودي موثوق في مركز الأعمال، متخصصون في صناعة اللوحات الفنية الكانفس بأعلى معايير الجودة.
+      </p>
+      <div class="flex justify-center md:justify-end space-x-4 mt-4">
+        <a href="#" class="text-gray-600 text-2xl hover:text-red-500"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="text-gray-600 text-2xl hover:text-black"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="text-gray-600 text-2xl hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- الحقوق ووسائل الدفع -->
+  <div class="mt-8 border-t pt-4 text-center text-sm text-gray-500">
+    <p>جميع الحقوق محفوظة © 2025 أفكار عصرية</p>
+    <div class="flex justify-center space-x-4 mt-2">
+      <img src="/visa.png" alt="Visa" class="h-6" />
+      <img src="/mastercard.png" alt="MasterCard" class="h-6" />
+      <img src="/stcpay.png" alt="STC Pay" class="h-6" />
+      <img src="/applepay.png" alt="Apple Pay" class="h-6" />
+    </div>
+  </div>
+</footer>
     
     <script>
         const menuToggle = document.getElementById('menu-toggle');
