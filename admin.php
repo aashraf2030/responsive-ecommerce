@@ -1,6 +1,10 @@
 
 <!DOCTYPE html>
+<<<<<<< HEAD
+<html lang="ar" dir=rtl>
+=======
 <html lang="ar">
+>>>>>>> 13a924945ddf46b3b0ab44e558885fd63e51ccc5
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +42,14 @@
         </ul>
     </div>
 
+<<<<<<< HEAD
+    <div class="content container">
+        <?php
+        include "/xampp/htdocs/pop/API/conn.php";
+=======
     <div class="content">
         <?php
+>>>>>>> 13a924945ddf46b3b0ab44e558885fd63e51ccc5
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             switch ($page) {
