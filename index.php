@@ -1,5 +1,6 @@
 <?php
     include "API/conn.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@
         <img src="https://placehold.co/60x32" alt="Logo" class="h-10">
         <div class="flex space-x-4 rtl:space-x-reverse">
             <button><i class="fas fa-search"></i></button>
-            <button><i class="fas fa-user"></i></button>
+            <button onclick="document.location.href='login.php'"><i class="fas fa-user"></i></button>
             <button><i class="fas fa-globe"></i></button>
             <button><i class="fas fa-shopping-cart"></i></button>
         </div>
@@ -140,7 +141,7 @@
                 $q = "SELECT pname, price, image FROM product, product_has_category WHERE idproduct = product_idproduct
                  and category_category_id = (SELECT category_id FROM category WHERE name = N'مجموعة جدارية') ORDER BY creation_date Limit 10 ";
                 $stmt = $conn->query($q);
-                
+
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
                 {
                     echo "<div class='product'>

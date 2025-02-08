@@ -1,14 +1,6 @@
 <?php
-$host = "localhost";
-$dbname = "";
-$pass = "";
-$username = "root";
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  die("فشل الاتصال بقاعدة البيانات: " . $e->getMessage());
-}
+    include "API/conn.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +52,7 @@ try {
         
         <div id="login-form">
             <h2 class="text-2xl font-bold text-center mb-6">تسجيل الدخول</h2>
-            <form action="login.php" method="POST">
+            <form action=<?php echo "'".$api_base."login.php'"?> method="POST">
                 <div class="mb-4">
                     <label class="block text-gray-700" for="username">اسم المستخدم</label>
                     <input type="text" id="username" name="username" class="w-full border border-gray-300 py-2 px-4 rounded-lg focus:outline-none" required>
