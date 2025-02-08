@@ -1,3 +1,7 @@
+<?php
+    include "API/conn.php";
+?>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -58,89 +62,98 @@
         <h2 class="text-xl font-bold mb-4">أحدث المنتجات</h2>
         <div class="products-container">
             <div class="products-wrapper" id="productSlider">
-                <script>
-                    let products = '';
-                    for (let i = 1; i <= 8; i++) {
-                        products += `
-                            <div class='product'>
-                                <img src='https://placehold.co/600x400' alt='منتج ${i}'>
-                                <p class='mt-2'>لوحة فنية - خيل ${i}</p>
-                                <p class='font-bold'>180 رس</p>
+                
+                <?php
+                
+                    $q = "SELECT pname, price, image FROM product ORDER BY creation_date Limit 10 ";
+                    $stmt = $conn->query($q);
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo "<div class='product'>
+                                <img src=images/".$row["image"]. "alt='".$row["pname"]."'>
+                                <p class='mt-2'>".$row["pname"]."</p>
+                                <p class='font-bold'>".$row["price"]." رس</p>
                                 <div class='product-actions'>
                                     <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
                                     <i class='fas fa-heart wishlist'></i>
                                 </div>
-                            </div>
-                        `;
+                            </div>";
                     }
-                    document.write(products);
-                </script>
+                ?>
     </section>
     <section class="p-6">
         <h2 class="text-xl font-bold mb-4">الاكثر مبيعاً</h2>
         <div class="products-container">
             <div class="products-wrapper" id="productSlider">
-                <script>
-                    let product = '';
-                    for (let i = 1; i <= 8; i++) {
-                        product += `
-                            <div class='product'>
-                                <img src='https://placehold.co/600x400' alt='منتج ${i}'>
-                                <p class='mt-2'>لوحة فنية - خيل ${i}</p>
-                                <p class='font-bold'>180 رس</p>
-                                <div class='product-actions'>
-                                    <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
-                                    <i class='fas fa-heart wishlist'></i>
-                                </div>
+            <?php
+                
+                $q = "SELECT pname, price, image FROM product, product_has_category WHERE idproduct in 
+                (SELECT product_idproduct FROM `cart_has_product` ORDER BY COUNT(product_idproduct))
+                 ORDER BY creation_date Limit 10 ";
+                $stmt = $conn->query($q);
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
+                    echo "<div class='product'>
+                            <img src=images/".$row["image"]. "alt='".$row["pname"]."'>
+                            <p class='mt-2'>".$row["pname"]."</p>
+                            <p class='font-bold'>".$row["price"]." رس</p>
+                            <div class='product-actions'>
+                                <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
+                                <i class='fas fa-heart wishlist'></i>
                             </div>
-                        `;
-                    }
-                    document.write(product);
-                </script>
+                        </div>";
+                }
+            ?>
     </section>
     <section class="p-6">
         <h2 class="text-xl font-bold mb-4">لوحات لتغطية طبلون وعداد الكهرباء</h2>
         <div class="products-container">
             <div class="products-wrapper" id="productSlider">
-                <script>
-                    let produc = '';
-                    for (let i = 1; i <= 8; i++) {
-                        produc += `
-                            <div class='product'>
-                                <img src='https://placehold.co/600x400' alt='منتج ${i}'>
-                                <p class='mt-2'>لوحة فنية - خيل ${i}</p>
-                                <p class='font-bold'>180 رس</p>
-                                <div class='product-actions'>
-                                    <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
-                                    <i class='fas fa-heart wishlist'></i>
-                                </div>
+            <?php
+                
+                $q = "SELECT pname, price, image FROM product, product_has_category WHERE idproduct = product_idproduct
+                 and category_category_id = (SELECT category_id FROM category WHERE name = N'لوحات لتغطية طبلون وعداد الكهرباء') ORDER BY creation_date Limit 10 ";
+                $stmt = $conn->query($q);
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
+                    echo "<div class='product'>
+                            <img src=images/".$row["image"]. "alt='".$row["pname"]."'>
+                            <p class='mt-2'>".$row["pname"]."</p>
+                            <p class='font-bold'>".$row["price"]." رس</p>
+                            <div class='product-actions'>
+                                <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
+                                <i class='fas fa-heart wishlist'></i>
                             </div>
-                        `;
-                    }
-                    document.write(produc);
-                </script>
+                        </div>";
+                }
+            ?>
     </section>
     <section class="p-6">
         <h2 class="text-xl font-bold mb-4">مجموعة جدارية</h2>
         <div class="products-container">
             <div class="products-wrapper" id="productSlider">
-                <script>
-                    let produ = '';
-                    for (let i = 1; i <= 8; i++) {
-                        produ += `
-                            <div class='product'>
-                                <img src='https://placehold.co/600x400' alt='منتج ${i}'>
-                                <p class='mt-2'>لوحة فنية - خيل ${i}</p>
-                                <p class='font-bold'>180 رس</p>
-                                <div class='product-actions'>
-                                    <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
-                                    <i class='fas fa-heart wishlist'></i>
-                                </div>
+            <?php
+                
+                $q = "SELECT pname, price, image FROM product, product_has_category WHERE idproduct = product_idproduct
+                 and category_category_id = (SELECT category_id FROM category WHERE name = N'مجموعة جدارية') ORDER BY creation_date Limit 10 ";
+                $stmt = $conn->query($q);
+                
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
+                    echo "<div class='product'>
+                            <img src=images/".$row["image"]. "alt='".$row["pname"]."'>
+                            <p class='mt-2'>".$row["pname"]."</p>
+                            <p class='font-bold'>".$row["price"]." رس</p>
+                            <div class='product-actions'>
+                                <button class='add-to-cart'><i class='fas fa-shopping-cart'></i> أضف للسلة</button>
+                                <i class='fas fa-heart wishlist'></i>
                             </div>
-                        `;
-                    }
-                    document.write(produ);
-                </script>
+                        </div>";
+                }
+            ?>
     </section>
     
     
